@@ -3,8 +3,10 @@ import math
 def sumar(a, b):
     return a + b
 
-def restar(a, b):
-    return a - b
+def restar_potencias(a, b):
+    # Aquí restamos a elevado a b menos b elevado a a
+    # O puedes simplemente hacer (a**b) - algo, según lo que necesites
+    return (a ** b) - (b ** a)
 
 def logaritmo_neperiano(a):
     return math.log(a)
@@ -12,7 +14,7 @@ def logaritmo_neperiano(a):
 def mostrar_menu():
     print("=== CALCULADORA ===")
     print("1. Sumar")
-    print("2. Restar")
+    print("2. Restar Potencias (a^b - b^a)")
     print("3. Logaritmo neperiano")
     print("0. Salir")
 
@@ -32,10 +34,10 @@ def main():
 
         elif opcion == "2":
             try:
-                a = float(input("Introduce el primer número: "))
-                b = float(input("Introduce el segundo número: "))
-                resultado = restar(a, b)
-                print(f"Resultado: {resultado}")
+                a = float(input("Introduce la base 'a': "))
+                b = float(input("Introduce el exponente 'b': "))
+                resultado = restar_potencias(a, b)
+                print(f"Resultado de a^b - b^a: {resultado}")
             except ValueError:
                 print("Error: debes introducir números válidos.")
 
@@ -57,7 +59,7 @@ def main():
         else:
             print("Opción no válida. Inténtalo de nuevo.")
 
-        print()  # Línea en blanco para separar iteraciones
+        print()
 
 if __name__ == "__main__":
     main()
